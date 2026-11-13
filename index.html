@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Skill to Income UPI — Demo</title>
+<style>
+:root{--bg:#0b1020;--panel:#121a2d;--panel2:#18233a;--text:#eef3ff;--muted:#9aa9c5;--line:#263550;--blue:#7aa7ff;--green:#55d6a3;--amber:#ffc76b}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(140deg,#0b1020,#101a31);color:var(--text);font:15px system-ui,-apple-system,Segoe UI,sans-serif}
+.app{display:flex;min-height:100vh}.side{width:245px;padding:25px 18px;background:#0d1527;border-right:1px solid var(--line);position:fixed;inset:0 auto 0 0}
+.brand{font-size:19px;font-weight:800;line-height:1.2}.brand span{color:var(--blue)}.sub{font-size:12px;color:var(--muted);margin:7px 0 30px}
+.nav{display:grid;gap:8px}.nav button{background:transparent;color:var(--muted);border:0;text-align:left;padding:12px;border-radius:10px;font-size:14px;cursor:pointer}.nav button.active,.nav button:hover{background:var(--panel2);color:var(--text)}
+.main{margin-left:245px;width:calc(100% - 245px);padding:28px;max-width:1500px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:25px}.top h1{margin:0;font-size:25px}.muted{color:var(--muted)}.pill{border:1px solid #6a542d;background:#332817;color:#ffd58d;padding:7px 11px;border-radius:99px;font-size:12px}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.card{background:linear-gradient(145deg,var(--panel),#111b30);border:1px solid var(--line);border-radius:16px;padding:18px;min-width:0}.klabel{color:var(--muted);font-size:13px}.value{font-size:27px;font-weight:750;margin-top:8px}.small{font-size:12px;color:var(--muted);margin-top:5px}.section{margin-top:22px}.sectionhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.sectionhead h2{font-size:17px;margin:0}.filters{display:flex;gap:8px;flex-wrap:wrap}.filters button,.action{border:1px solid var(--line);background:var(--panel2);color:var(--text);padding:9px 12px;border-radius:9px;cursor:pointer}.filters button.selected{border-color:var(--blue);color:var(--blue)}
+.sources{display:grid;grid-template-columns:1fr 1fr;gap:14px}.source{display:flex;justify-content:space-between;align-items:center;gap:10px}.tag{font-size:11px;padding:5px 8px;border-radius:99px;background:#18382f;color:var(--green)}.tag.demo{background:#3a2d18;color:var(--amber)}
+table{width:100%;border-collapse:collapse;min-width:580px}th,td{text-align:left;padding:13px 10px;border-bottom:1px solid var(--line);font-size:13px}th{color:var(--muted);font-weight:600}td{color:#e3eaff}.tablewrap{overflow:auto}.status{color:var(--amber)}.emptyhint{padding:13px 0;color:var(--muted);font-size:12px}
+.notice{border:1px solid #66512d;background:#2a241a;color:#f5d7a2;border-radius:12px;padding:13px 15px;margin-top:18px;font-size:13px;line-height:1.5}
+.page{display:none}.page.active{display:block}.mobilehead{display:none}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.side{width:205px}.main{margin-left:205px;width:calc(100% - 205px);padding:20px}}
+@media(max-width:650px){.app{display:block}.side{position:static;width:auto;padding:15px;border-right:0;border-bottom:1px solid var(--line)}.sub{margin-bottom:12px}.nav{display:flex;overflow:auto}.nav button{white-space:nowrap;padding:9px}.main{margin:0;width:100%;padding:17px}.top h1{font-size:21px}.grid{gap:9px}.card{padding:13px}.value{font-size:22px}.sources{grid-template-columns:1fr}.sectionhead{align-items:flex-start;gap:10px;flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="side">
+  <div class="brand">Skill to <span>Income</span><br>UPI</div>
+  <div class="sub">Unified supplier dashboard · Demo</div>
+  <nav class="nav">
+    <button class="active" data-page="overview">▦ Overview</button>
+    <button data-page="orders">▣ Orders</button>
+    <button data-page="earnings">◈ Earnings</button>
+    <button data-page="settings">⚙ Settings</button>
+  </nav>
+</aside>
+<main class="main">
+  <div class="top"><div><h1 id="heading">Overview</h1><div class="muted" style="font-size:13px;margin-top:5px">Your platforms in one place</div></div><span class="pill">DEMO MODE · NO LIVE PAYMENTS</span></div>
+  <section class="page active" id="overview">
+    <div class="grid">
+      <div class="card"><div class="klabel">Combined demo orders</div><div class="value">12</div><div class="small">Sample data only</div></div>
+      <div class="card"><div class="klabel">Pending demo orders</div><div class="value">4</div><div class="small">Not connected to providers</div></div>
+      <div class="card"><div class="klabel">Demo earnings</div><div class="value">₹840</div><div class="small">Illustrative amount only</div></div>
+      <div class="card"><div class="klabel">Camellia points</div><div class="value">250</div><div class="small">Placeholder balance</div></div>
+    </div>
+    <div class="section">
+      <div class="sectionhead"><h2>Connected platform slots</h2><span class="muted" style="font-size:12px">Not connected yet</span></div>
+      <div class="sources">
+        <div class="card source"><div><b>JMLScan</b><div class="small">Supplier orders · pricing · history</div></div><span class="tag demo">Demo only</span></div>
+        <div class="card source"><div><b>Camellia</b><div class="small">Employer submissions · status · points</div></div><span class="tag demo">Demo only</span></div>
+      </div>
+    </div>
+    <div class="section card">
+      <div class="sectionhead"><h2>Recent orders</h2><button class="action" onclick="showPage('orders')">View all</button></div>
+      <div class="tablewrap"><table><thead><tr><th>Order ID</th><th>Platform</th><th>Amount</th><th>Status</th></tr></thead><tbody>
+      <tr><td>DEMO-1001</td><td>JMLScan</td><td>₹120</td><td class="status">Pending (sample)</td></tr>
+      <tr><td>DEMO-1002</td><td>Camellia</td><td>80 points</td><td>Completed (sample)</td></tr>
+      <tr><td>DEMO-1003</td><td>JMLScan</td><td>₹95</td><td class="status">In review (sample)</td></tr>
+      </tbody></table></div>
+    </div>
+    <div class="notice"><b>Important:</b> This is a visual prototype with fictional data. It does not connect to JMLScan or Camellia, submit orders, process UPI payments, or provide withdrawals.</div>
+  </section>
+  <section class="page" id="orders">
+    <div class="card">
+      <div class="sectionhead"><h2>Combined orders</h2><div class="filters"><button class="selected" onclick="filterRows('all',this)">All</button><button onclick="filterRows('JMLScan',this)">JMLScan</button><button onclick="filterRows('Camellia',this)">Camellia</button></div></div>
+      <div class="tablewrap"><table><thead><tr><th>Order ID</th><th>Platform</th><th>Amount / Points</th><th>Status</th><th>Type</th></tr></thead><tbody id="orderRows">
+      <tr data-platform="JMLScan"><td>DEMO-1001</td><td>JMLScan</td><td>₹120</td><td>Pending</td><td>Sample</td></tr>
+      <tr data-platform="Camellia"><td>DEMO-1002</td><td>Camellia</td><td>80 points</td><td>Completed</td><td>Sample</td></tr>
+      <tr data-platform="JMLScan"><td>DEMO-1003</td><td>JMLScan</td><td>₹95</td><td>In review</td><td>Sample</td></tr>
+      <tr data-platform="Camellia"><td>DEMO-1004</td><td>Camellia</td><td>45 points</td><td>Failed</td><td>Sample</td></tr>
+      </tbody></table></div>
+    </div>
+  </section>
+  <section class="page" id="earnings">
+    <div class="grid">
+      <div class="card"><div class="klabel">JMLScan demo total</div><div class="value">₹560</div><div class="small">Not a real balance</div></div>
+      <div class="card"><div class="klabel">Camellia demo points used</div><div class="value">120</div><div class="small">Placeholder points</div></div>
+    </div>
+    <div class="notice">Actual earnings, points and withdrawals must always be verified in each provider's official account. This demo does not move money or request UPI details.</div>
+  </section>
+  <section class="page" id="settings">
+    <div class="card"><h2 style="margin-top:0">Platform connections</h2><p class="muted">No provider credentials are stored in this demo.</p><p><b>JMLScan:</b> Not connected</p><p><b>Camellia:</b> Not connected</p><p><b>Hosting:</b> GitHub repository + Render service can be configured later.</p></div>
+    <div class="notice">Never paste API keys, passwords, OTPs or UPI PINs into a public page or chat. Any future integration must use an authorized server-side API and secure secret storage.</div>
+  </section>
+</main></div>
+<script>
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===id));document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===id));document.getElementById('heading').textContent=id[0].toUpperCase()+id.slice(1)}
+document.querySelectorAll('.nav button').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
+function filterRows(platform,btn){document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('selected'));btn.classList.add('selected');document.querySelectorAll('#orderRows tr').forEach(r=>r.style.display=platform==='all'||r.dataset.platform===platform?'':'none')}
+</script>
+</body></html>
